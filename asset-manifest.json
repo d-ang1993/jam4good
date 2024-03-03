@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.f855e6bc.css",
-    "main.js": "/react-gh-pages/static/js/main.078bc059.js",
-    "static/js/453.178788fa.chunk.js": "/react-gh-pages/static/js/453.178788fa.chunk.js",
-    "static/media/clown-pepe-the-frog.gif": "/react-gh-pages/static/media/clown-pepe-the-frog.c594f1fe3e37874e7e43.gif",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f855e6bc.css.map": "/react-gh-pages/static/css/main.f855e6bc.css.map",
-    "main.078bc059.js.map": "/react-gh-pages/static/js/main.078bc059.js.map",
-    "453.178788fa.chunk.js.map": "/react-gh-pages/static/js/453.178788fa.chunk.js.map"
+    "main.css": "/jam4good/static/css/main.f855e6bc.css",
+    "main.js": "/jam4good/static/js/main.f12aab10.js",
+    "static/js/453.178788fa.chunk.js": "/jam4good/static/js/453.178788fa.chunk.js",
+    "static/media/clown-pepe-the-frog.gif": "/jam4good/static/media/clown-pepe-the-frog.c594f1fe3e37874e7e43.gif",
+    "index.html": "/jam4good/index.html",
+    "main.f855e6bc.css.map": "/jam4good/static/css/main.f855e6bc.css.map",
+    "main.f12aab10.js.map": "/jam4good/static/js/main.f12aab10.js.map",
+    "453.178788fa.chunk.js.map": "/jam4good/static/js/453.178788fa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.078bc059.js"
+    "static/js/main.f12aab10.js"
   ]
 }

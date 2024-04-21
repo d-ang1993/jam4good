@@ -1,6 +1,7 @@
-
 import logo from './utils/clown-pepe-the-frog.gif'
 import './App.css';
+import Button from './Components';
+
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <p>
           Better Luck Next Time
         </p>
-      
+      <Button $primary>Normal</Button>
       </header>
     </div>
   );

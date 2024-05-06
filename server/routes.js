@@ -14,6 +14,7 @@ let items = [
 const CLIENT_ID = 'H6WM3OBYFEDN6722CX';
 const CLIENT_SECRET = 'DVB6BWUI7C2GPJSEPM6TYBOXE3XZHMW7FXSOMAMMGUG7QLB7B4';
 const REDIRECT_URI = 'https://localhost:5000/oauth/callback'; // Update with your actual redirect URI
+const PRIVATE = 'VJVVR7EWLL6BTCPEZH3E'
 
 
 // Route to get all items

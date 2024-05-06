@@ -1,21 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const ContactFormPopup = ({ onClose }) => {
+const ContactFormStatic = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
+    selectedOption: '',
     message: ''
   });
-
-  const modalEl = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
+    });
+  };
+
+  const handleRadioChange = (e) => {
+    setFormData({
+      ...formData,
+      selectedOption: e.target.value
     });
   };
 
@@ -91,104 +97,83 @@ const authenticateWithZoho = async () => {
   }
 };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      const formContainer = document.querySelector('.FormContainer');
-      if (formContainer && !formContainer.contains(e.target) && e.target.tagName !== 'BUTTON') {
-        onClose(); // Close modal if clicked outside of FormContainer and not on a button
-      }
-    };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
+  const radioOptions = ['Volunteer', 'Mentor', 'Speaker', 'Sponsor', 'Other'];
 
   return (
-    <Overlay>
-      <FormContainer className="FormContainer">
-        <CloseButton onClick={onClose}>Close</CloseButton>
-        <FormTitle>Contact Us</FormTitle>
-        <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Label htmlFor="firstName">First Name</Label>
-            <Input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="lastName">Last Name</Label>
-            <Input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="message">Message</Label>
-            <TextArea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-            />
-          </FormGroup>
-          <SubmitButton type="submit">Submit</SubmitButton>
-        </Form>
-      </FormContainer>
-    </Overlay>
+    <FormContainer className="FormContainer">
+      <FormTitle>Contact Us</FormTitle>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            placeholder="First Name *"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            placeholder="Last Name *"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="E-mail *"
+          />
+        </FormGroup>
+        <Label>Interested in helping as:</Label>
+        <RadioFormGroup>
+          {radioOptions.map((option, index) => (
+            <RadioInputContainer key={index}>
+              <RadioInput
+                type="radio"
+                id={`option${index + 1}`}
+                name="selectedOption"
+                value={`option${index + 1}`}
+                checked={formData.selectedOption === `option${index + 1}`}
+                onChange={handleRadioChange}
+              />
+              <RadioLabel htmlFor={`option${index + 1}`}>{option}</RadioLabel>
+            </RadioInputContainer>
+          ))}
+        </RadioFormGroup>
+        <FormGroup>
+          <TextArea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Tell us about yourself"
+          />
+        </FormGroup>
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </Form>
+    </FormContainer>
   );
 };
 
-const Overlay = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-`;
-
 const FormContainer = styled.div`
   background-color: #ffffff;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 30px;
-  max-width: 400px;
-  width: 100%;
-  position: relative;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: #888;
-  cursor: pointer;
-  font-size: 20px;
-  position: absolute;
-  top: 10px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+  border-radius: 60px;
+  max-height: 800px;
 `;
 
 const FormTitle = styled.h2`
@@ -203,12 +188,15 @@ const Form = styled.form`
 `;
 
 const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: auto;
   margin-bottom: 20px;
 `;
 
 const Label = styled.label`
   color: #333;
-  display: block;
   font-size: 14px;
   margin-bottom: 5px;
 `;
@@ -220,6 +208,8 @@ const Input = styled.input`
   padding: 10px;
   width: 100%;
   transition: border-color 0.3s ease-in-out;
+  border-radius: 60px;
+  margin-bottom: 1rem;
 
   &:focus {
     border-color: #007bff;
@@ -235,6 +225,9 @@ const TextArea = styled.textarea`
   width: 100%;
   resize: vertical;
   transition: border-color 0.3s ease-in-out;
+  border-radius: 40px;
+  min-height:200px;
+
 
   &:focus {
     border-color: #007bff;
@@ -242,6 +235,43 @@ const TextArea = styled.textarea`
   }
 `;
 
+const RadioFormGroup = styled.div`
+ 
+  display: flex;
+  width: 90%;
+  margin: 1.5rem auto;
+  justify-content: space-around;
+`;
+
+const RadioOptionsContainer = styled.div`
+  display: flex;
+  content: space-between;
+`;
+
+const RadioInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const RadioInput = styled.input`
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 0px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+
+  &:checked {
+    background-color: #007bff;
+  }
+`;
+
+const RadioLabel = styled.label`
+  color: #333;
+  font-size: 14px;
+`;
 
 const SubmitButton = styled.button`
   background-color: #007bff;
@@ -252,11 +282,13 @@ const SubmitButton = styled.button`
   font-size: 16px;
   padding: 10px;
   transition: background-color 0.3s ease;
+  margin: auto;
+  width: 80px;
 
   &:hover {
     background-color: #0056b3;
   }
 `;
 
+export default ContactFormStatic;
 
-export default ContactFormPopup;

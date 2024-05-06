@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StackedComponentsContainer = () => {
+const StackedComponentsContainer = (props) => {
   // Data for each stacked component
-  const componentsData = [
-    { title: 'Component 1', description: 'Description 1' },
-    { title: 'Component 2', description: 'Description 2' },
-    { title: 'Component 3', description: 'Description 3' },
-    // Add more data objects for additional components
-  ];
+  const componentsData = props.data
 
   return (
     <Container>
       {componentsData.map((data, index) => (
-        <StackedComponent key={index} title={data.title} description={data.description} />
+        <StackedComponent key={index} title={data.title} description={data.description} img={data.image} />
       ))}
     </Container>
   );

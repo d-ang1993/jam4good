@@ -1,4 +1,4 @@
-import logo from './utils/clown-pepe-the-frog.gif'
+import logo from './assets/clown-pepe-the-frog.gif'
 import './App.css';
 import Button from './Components';
 

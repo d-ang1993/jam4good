@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../Components/index';
-import Navbar from '../Components/nav';
-import ContactFormPopup from '../Components/contactForm';
-import ContactFormStatic from '../Components/contactFormStatic';
+import NavBar from '../Components/NavBar';
+import ContactFormPopup from '../Components/ContactFormPopup';
+import ContactFormStatic from '../Components/ContactFormStatic';
 import StackedComponents from '../Components/stackedcomponents';
 import VideoComponent from '../Components/VideoComponent';
-import videoSrc from '../utils/1096229783-preview.mp4'; // Import video file
-import brain from '../utils/brain.png'; // Import video file
-import CompanyBanner from '../Components/companyBanner';
+import videoSrc from '../assets/1096229783-preview.mp4'; // Import video file
+import brain from '../assets/brain.png'; // Import video file
+import background from '../assets/hero-background.png'
+import CompanyBanner from '../Components/CompanyBanner';
 
 
 const HomePage = () => {
@@ -31,13 +32,13 @@ const HomePage = () => {
         // Add more data objects for additional components
       ];
   return (
+
     <ParentApp>
-        <Navbar />
+        <NavBar />
       <HeroPanel>
         <h1>Let's Jam, Toronto!</h1>
         <p>
-            We are excited to jam again! <br></br>
-            This time it will be online with <strong>Indigifriends</strong> coming this May 2024.
+            Inspiring next generational talent to do better for the world 
         </p>
         <Button onClick={toggleComponent} >Learn More</Button>
         {isOpen && <ContactFormPopup onClose={toggleComponent}/>}
@@ -59,15 +60,25 @@ const HomePage = () => {
 };
 
 const HeroPanel = styled.div`
-  background-color: #333;
+  // background-color: #333;
+  background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url(${background});
   color: white;
   padding: 80px 20px;
   text-align: center;
-  height: 50vh;
-  
-  p > strong {
-    font-weight: bold;
-    color: #BF4F74;
+  min-height: 50vh;
+  font-family: regular;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+
+
+  p{
+    font-size: 1.5rem;
+  }
+
+  button{
+    margin: auto auto 0 auto;
   }
 `;
 

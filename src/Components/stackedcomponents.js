@@ -1,25 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const StackedComponentsContainer = (props) => {
+const StackedComponents = (props) => {
   // Data for each stacked component
-  const componentsData = props.data
+  const componentsData = props.data;
 
   return (
     <Container>
       {componentsData.map((data, index) => (
-        <StackedComponent key={index} title={data.title} description={data.description} img={data.image} />
+        <StackedComponent
+          key={index}
+          title={data.title}
+          description={data.description}
+          img={data.image}
+        />
       ))}
     </Container>
   );
 };
 
 const Container = styled.div`
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+
   display: flex;
-  margin-bottom: 5px;
+  flex-wrap: wrap;
+  background-color: white;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   padding: 1rem;
+
+  // @media screen and (max-width: 768px) {
+  //   flex-direction: column;
+  //   gap: 8px;
+  // }
+
+  &:after {
+  }
 `;
 
 const StackedComponent = ({ title, description }) => {
@@ -32,8 +52,8 @@ const StackedComponent = ({ title, description }) => {
   );
 };
 
-
 const ComponentContainer = styled.div`
+  background-color: pink;
   margin-right: 20px; /* Adjust spacing between components */
   padding: 4rem;
   text-align: center;
@@ -59,4 +79,4 @@ const Description = styled.p`
   color: #888;
 `;
 
-export default StackedComponentsContainer;
+export default StackedComponents;

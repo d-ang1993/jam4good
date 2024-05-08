@@ -4,7 +4,8 @@ import Button from '../Components/index';
 import NavBar from '../Components/NavBar';
 import ContactFormPopup from '../Components/ContactFormPopup';
 import ContactFormStatic from '../Components/ContactFormStatic';
-import StackedComponents from '../Components/stackedcomponents';
+import StackedComponents from '../Components/StackedComponents';
+import EventSlider from '../Components/EventSlider';
 import VideoComponent from '../Components/VideoComponent';
 import videoSrc from '../assets/1096229783-preview.mp4'; // Import video file
 import brain from '../assets/brain.png'; // Import video file
@@ -31,6 +32,17 @@ const HomePage = () => {
         { title: 'Component 3', description: 'Description 3' },
         // Add more data objects for additional components
       ];
+
+      const eventSliderData = [
+        { title: 'Event 1',  image: "" , date: ""},
+        // { title: 'Event 2',  image: "", date: ""},
+        // { title: 'Event 3',  image: "" , date: ""},
+
+        // Add more data objects for additional components
+      ];
+
+
+
   return (
 
     <ParentApp>
@@ -52,8 +64,14 @@ const HomePage = () => {
         <h1>Meet The Team</h1>
         <StackedComponents data={teamData} />
       </div>
-      <ContactFormStatic/>
+      <EventSlider eventsData = {eventSliderData}></EventSlider>
+
+      {/* <ContactFormStatic/> */}
         
+
+
+
+
       {/* Other components or content for the homepage */}
     </ParentApp>
   );
@@ -65,13 +83,12 @@ const HeroPanel = styled.div`
   color: white;
   padding: 80px 20px;
   text-align: center;
-  min-height: 50vh;
+  min-height: 40vh;
   font-family: regular;
   position: relative;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-
 
   p{
     font-size: 1.5rem;

@@ -9,7 +9,7 @@ import EventSlider from '../Components/EventSlider';
 import VideoComponent from '../Components/VideoComponent';
 import videoSrc from '../assets/1096229783-preview.mp4'; // Import video file
 import brain from '../assets/brain.png'; // Import video file
-import background from '../assets/hero-background.png'
+import backgroundImage from '../assets/hero-background.png'
 import CompanyBanner from '../Components/CompanyBanner';
 
 
@@ -50,9 +50,9 @@ const HomePage = () => {
       <HeroPanel>
         <h1>Let's Jam, Toronto!</h1>
         <p>
-            Inspiring next generational talent to do better for the world 
+            Inspiring next generational talent to do better for the world.
         </p>
-        <Button onClick={toggleComponent} >Learn More</Button>
+        <Button onClick={toggleComponent} >Contact Us</Button>
         {isOpen && <ContactFormPopup onClose={toggleComponent}/>}
       </HeroPanel>
       <CompanyBanner/>
@@ -79,7 +79,8 @@ const HomePage = () => {
 
 const HeroPanel = styled.div`
   // background-color: #333;
-  background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url(${background});
+  background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url(${backgroundImage});
+  background-size: cover;
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -94,8 +95,12 @@ const HeroPanel = styled.div`
     font-size: 1.5rem;
   }
 
-  button{
+  ${Button}{
     margin: auto auto 0 auto;
+    background-color: #0AAEF5;
+    border: none;
+    color: black;
+    border-radius: 0;
   }
 `;
 

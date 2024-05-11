@@ -11,6 +11,9 @@ import videoSrc from '../assets/1096229783-preview.mp4'; // Import video file
 import brain from '../assets/brain.png'; // Import video file
 import backgroundImage from '../assets/hero-background.png'
 import CompanyBanner from '../Components/CompanyBanner';
+import learnByDoingImage from '../assets/learn-by-doing.png'
+import makeStuffThatMattersImage from '../assets/make-stuff-that-matters.png'
+import yourNewCrewAwaitsImage from '../assets/your-new-crew-awaits.png'
 
 
 const HomePage = () => {
@@ -20,16 +23,16 @@ const HomePage = () => {
       };
 
       const componentsData = [
-        { title: 'Component 1', description: 'Description 1', img: brain },
-        { title: 'Component 2', description: 'Description 2' },
-        { title: 'Component 3', description: 'Description 3' },
+        { title: 'Make Stuff That Matters', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', image: makeStuffThatMattersImage },
+        { title: 'Your New Crew Awaits', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', image: yourNewCrewAwaitsImage },
+        { title: 'Learn By Doing', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', image: learnByDoingImage },
         // Add more data objects for additional components
       ];
 
       const teamData = [
-        { title: 'Component 1', description: 'Description 1', img:'' },
-        { title: 'Component 2', description: 'Description 2' },
-        { title: 'Component 3', description: 'Description 3' },
+        { title: 'Component 1', description: 'Description 1', image: brain },
+        { title: 'Component 2', description: 'Description 2',  image: brain },
+        { title: 'Component 3', description: 'Description 3',  image: brain },
         // Add more data objects for additional components
       ];
 

@@ -18,13 +18,9 @@ const NavBar = () => {
       </MenuIcon>
       <Menu open={isOpen}>
         <MenuList>
-          <MenuItem href="/">Home</MenuItem>
+          <MenuItem href="/upcoming-events">Upcoming Event</MenuItem>
           <Seperator />
-          <MenuItem href="/about">About</MenuItem>
-          <Seperator />
-          <MenuItem href="/services">Services</MenuItem>
-          <Seperator />
-          <MenuItem href="/contact">Contact</MenuItem>
+          <MenuItem href="/about">About Us</MenuItem>
           <Seperator />
         </MenuList>
       </Menu>
@@ -33,17 +29,18 @@ const NavBar = () => {
 };
 
 const Nav = styled.nav`
-  background: #500;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 40px;
   position: relative;
   z-index: 2;
+
 `;
 
 const Logo = styled.a`
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
@@ -87,7 +84,7 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.a`
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 1rem;
   padding: 10px 15px;

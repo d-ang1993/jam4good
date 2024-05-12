@@ -11,6 +11,8 @@ import videoSrc from '../assets/1096229783-preview.mp4'; // Import video file
 import brain from '../assets/brain.png'; // Import video file
 import background from '../assets/hero-background.png'
 import CompanyBanner from '../Components/CompanyBanner';
+import TextContainer from '../Components/TextContainer';
+import Footer from '../Components/Footer';
 
 
 const HomePage = () => {
@@ -57,6 +59,9 @@ const HomePage = () => {
       </HeroPanel>
       <CompanyBanner/>
       <div>
+        <TextContainer text="JamX aims to be the go-to destination for creative and entrepreneurial minds to connect, collaborate, and shape the future. Our vision is to create a world where everyone has the chance to drive meaningful change through innovation and success in the startup ecosystem." />
+      </div>
+      <div>
         <StackedComponents data={componentsData} />
       </div>
       <VideoComponent videoSrc={videoSrc} />
@@ -71,7 +76,7 @@ const HomePage = () => {
 
 
 
-
+      <Footer/>
       {/* Other components or content for the homepage */}
     </ParentApp>
   );

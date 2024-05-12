@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import HomePage from './Pages/homepage';
+import Footer from './Components/Footer';
 
 
 const router = createBrowserRouter([

@@ -1,6 +1,7 @@
 import logo from './assets/clown-pepe-the-frog.gif'
 import './App.css';
 import Button from './Components';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         </p>
       <Button $primary>Normal</Button>
       </header>
+      <Footer/>
     </div>
   );
 }

@@ -11,12 +11,14 @@ const EventSlider = (props) => {
       {eventsData.map((data, index) => (
         <Event key={index}>
           <EventImageWrapper>
-            <img src={image} alt="" />
+            <img src={data.image} alt="" />
           </EventImageWrapper>
           <EventInfoContainer>
             <div>{data.title}</div>
-            <span>Friday 23 Aug 2024 to Sun 25 August 2024</span>
+            <span>{data.date}</span>
+            {data.date !== "TBD" ? (
             <Button>Get More Info</Button>
+          ) : null}
           </EventInfoContainer>
         </Event>
       ))}

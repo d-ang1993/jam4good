@@ -7,14 +7,18 @@ const VideoContainer = styled.div`
   width: 100%;
   max-width: 800px; /* Adjust the maximum width as needed */
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
 `;
 
 // Define the video element with styled-components
 const VideoElement = styled.video`
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   width: 100%;
-  height: auto;
+  // height: auto;
   border-radius: 8px; /* Add border radius for rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth effect */
 `;
 
 // Video component

@@ -12,7 +12,7 @@ const StackedComponents = (props) => {
           key={index}
           title={data.title}
           description={data.description}
-          img={data.image}
+          image={data.image}
         />
       ))}
     </Container>
@@ -23,29 +23,26 @@ const Container = styled.div`
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
   background-color: white;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: grid;
+  grid-gap: 40px;
+  // grid-template-columns: repeat(auto-fit, minmax(280px, 600fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+ 
+
+
+  align-content: start;
+  justify-items: start;
+
   padding: 1rem;
-
-  // @media screen and (max-width: 768px) {
-  //   flex-direction: column;
-  //   gap: 8px;
-  // }
-
-  &:after {
-  }
 `;
 
-const StackedComponent = ({ title, description }) => {
+const StackedComponent = ({ title, description, image }) => {
   return (
     <ComponentContainer>
-      <Circle />
+      <ImageWrapper>
+        <Image src={image}></Image>
+      </ImageWrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </ComponentContainer>
@@ -53,20 +50,16 @@ const StackedComponent = ({ title, description }) => {
 };
 
 const ComponentContainer = styled.div`
-  background-color: pink;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
   margin-right: 20px; /* Adjust spacing between components */
-  padding: 4rem;
+  padding: 3rem 3rem 0rem 3rem;
+   
   text-align: center;
-  margin: auto;
-`;
-
-const Circle = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: #007bff;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  margin: auto;
+  align-self: start;
+  height: 100%;
 `;
 
 const Title = styled.h3`
@@ -75,8 +68,25 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p`
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #888;
+  overflow: auto;
+  word-break: break-word;
+`;
+
+const ImageWrapper = styled.div`
+  overflow: hidden;
+  height: 20rem;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
 `;
 
 export default StackedComponents;

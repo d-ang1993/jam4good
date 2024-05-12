@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import logo from "../assets/jamxicon.svg";
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import logo_jam from "./Icon.js"
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +14,7 @@ const NavBar = () => {
 
   return (
     <Nav>
-      <Logo href="/">Logo</Logo>
+      <Logo to="/"></Logo>
       <MenuIcon onClick={toggleMenu}>
         <div className={isOpen ? "open" : ""}></div>
         <div className={isOpen ? "open" : ""}></div>
@@ -18,35 +22,40 @@ const NavBar = () => {
       </MenuIcon>
       <Menu open={isOpen}>
         <MenuList>
-          <MenuItem href="/">Home</MenuItem>
-          <Seperator />
-          <MenuItem href="/about">About</MenuItem>
-          <Seperator />
-          <MenuItem href="/services">Services</MenuItem>
-          <Seperator />
-          <MenuItem href="/contact">Contact</MenuItem>
-          <Seperator />
+          <MenuItem>
+            <ScrollLink to="upcoming-events" smooth={true} duration={1000}>
+              Upcoming Event
+            </ScrollLink>
+          </MenuItem>
+          <MenuItem>
+            <ScrollLink to="about" smooth={true} duration={1000}>
+              About Us
+            </ScrollLink>
+          </MenuItem>
         </MenuList>
       </Menu>
     </Nav>
   );
 };
-
 const Nav = styled.nav`
-  background: #500;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 40px;
   position: relative;
   z-index: 2;
+
 `;
 
 const Logo = styled.a`
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+    background-image: url(${logo});
+    background-size: 220px auto; /* Adjust the width as needed, 'auto' will maintain aspect ratio */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the background image */
+    width: 25vw; /* Adjust width using vw units */
+    max-width: 250px; /* Set max-width to maintain proportion */
+    height: 50px; /* Allow height to adjust proportionally */
 `;
 
 const MenuIcon = styled.div`
@@ -87,11 +96,13 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.a`
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 1rem;
   padding: 10px 15px;
   transition: all 0.3s ease;
+  cursor: pointer; 
+
 
   &:hover {
     background: #555;
@@ -118,6 +129,16 @@ const MenuList = styled.ul`
     }
   }
 }
+`;
+
+const CustomLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  /* Set cursor to pointer on hover */
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Seperator = styled.hr`

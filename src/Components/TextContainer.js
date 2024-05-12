@@ -6,13 +6,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%; 
+  height: 100%; 
 `;
 
 // Styled component for the heading
 const Heading = styled.h2`
   text-align: center;
   padding: 2rem 10rem;
+  margin: 5rem 0;
 `;
 
 // React component

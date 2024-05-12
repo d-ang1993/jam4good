@@ -7,7 +7,7 @@ import ContactFormStatic from '../Components/ContactFormStatic';
 import StackedComponents from '../Components/StackedComponents';
 import EventSlider from '../Components/EventSlider';
 import VideoComponent from '../Components/VideoComponent';
-import videoSrc from '../assets/tj4g.mp4'; // Import video file
+// import videoSrc from '../assets/tj4g.mp4'; // Import video file
 import brain from '../assets/brain.png'; // Import video file
 import backgroundImage from '../assets/hero-background.png'
 import CompanyBanner from '../Components/CompanyBanner';
@@ -69,7 +69,7 @@ const HomePage = () => {
       <div id="about">
         <StackedComponents data={componentsData} />
       </div>
-      <VideoComponent videoSrc={videoSrc} />
+      {/* <VideoComponent videoSrc={videoSrc} /> */}
       <div>
         {/* <h1>Meet The Team</h1>
         <StackedComponents data={teamData} /> */}

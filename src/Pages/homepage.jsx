@@ -79,8 +79,7 @@ const HomePage = () => {
       </div>
 
       {/* <ContactFormStatic/> */}
-        
-      <Footer/>
+      
       {/* Other components or content for the homepage */}
     </ParentApp>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo from "../assets/jamxicon.svg";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import logo_jam from "./Icon.js"
+import logo_jam from "./Icon.js";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,40 +22,34 @@ const NavBar = () => {
       </MenuIcon>
       <Menu open={isOpen}>
         <MenuList>
-          <MenuItem>
-            <ScrollLink to="upcoming-events" smooth={true} duration={1000}>
-              Upcoming Event
-            </ScrollLink>
-          </MenuItem>
-          <MenuItem>
-            <ScrollLink to="about" smooth={true} duration={1000}>
-              About Us
-            </ScrollLink>
-          </MenuItem>
+          <ScrollLink to="upcoming-events" smooth={true} duration={1000}>
+            <MenuItem>Upcoming Event</MenuItem>
+          </ScrollLink>
+          <ScrollLink to="about" smooth={true} duration={1000}>
+            <MenuItem>About Us</MenuItem>
+          </ScrollLink>
         </MenuList>
       </Menu>
     </Nav>
   );
 };
 const Nav = styled.nav`
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 40px;
   position: relative;
   z-index: 2;
-
 `;
 
 const Logo = styled.a`
-    background-image: url(${logo});
-    background-size: 220px auto; /* Adjust the width as needed, 'auto' will maintain aspect ratio */
-    background-repeat: no-repeat;
-    background-position: center; /* Center the background image */
-    width: 25vw; /* Adjust width using vw units */
-    max-width: 250px; /* Set max-width to maintain proportion */
-    height: 50px; /* Allow height to adjust proportionally */
+  background-image: url(${logo});
+  background-size: 220px auto; /* Adjust the width as needed, 'auto' will maintain aspect ratio */
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+  width: 25vw; /* Adjust width using vw units */
+  max-width: 250px; /* Set max-width to maintain proportion */
+  height: 50px; /* Allow height to adjust proportionally */
 `;
 
 const MenuIcon = styled.div`
@@ -66,7 +60,7 @@ const MenuIcon = styled.div`
   div {
     width: 25px;
     height: 3px;
-    background: #fff;
+    background: black;
     margin: 3px;
     transition: all 0.3s ease;
   }
@@ -85,7 +79,7 @@ const Menu = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     position: absolute;
-    top: 64px;
+    top: 82px;
     left: 0;
     background: black;
     width: 100%;
@@ -95,21 +89,25 @@ const Menu = styled.div`
   }
 `;
 
-const MenuItem = styled.a`
-  color: black;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 10px 15px;
-  transition: all 0.3s ease;
-  cursor: pointer; 
+const MenuItem = styled.div`
+color: black;
+text-decoration: none;
+font-size: 1rem;
+padding: 10px 15px;
+transition: all 0.3s ease;
+margin-right: 8px;
+cursor: pointer; 
+&:hover {
+  color: grey;
+}
 
-
+@media screen and (max-width: 768px) {
+  color: white;
+  padding: 10px 0;
+  margin-right: 0;
   &:hover {
     background: #555;
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 10px 0;
+    color: white;
   }
 `;
 
